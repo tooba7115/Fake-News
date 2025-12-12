@@ -1,6 +1,5 @@
 from flask import Flask, render_template, session, request, redirect
-import sqlite3, random
-import os
+import sqlite3, random, os
 
 app = Flask(__name__)
 app.secret_key = "change-me"
