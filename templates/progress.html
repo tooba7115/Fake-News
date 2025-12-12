@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Progress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Fake or Real?</h1>
+    <nav>
+       <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href='/progress'>Progress</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-card">
+    <h2>Overall Progress</h2>
+
+    <p>Answered correctly: <strong>{{ correct }}</strong></p>
+    <p>Wrong: <strong>{{ wrong }}</strong></p>
+
+    <br>
+    <a class="next-btn" href="/">Back to Headlines</a>
+</div>
+
+</body>
+</html>

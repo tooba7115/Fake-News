@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Fake or Real?</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href='/progress'>Progress</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-card">
+    <h2>{{ h.content }}</h2>
+</div>
+
+<div class="result-bar">
+    <div class="result-message">
+        {% if is_correct %}
+            <h3>Correct!</h3>
+        {% else %}
+            <h3>Wrong!</h3>
+        {% endif %}
+    </div>
+
+    <a class="next-btn" href="/">Next Headline</a>
+
+</div>
+
+<div class="main-card">
+
+    <div class="correct-ans">
+        <p>The correct answer was:
+            <b>{{ h.realOrFake }}</b>
+        </p>
+    </div>
+
+        {% if h.url %}
+    <a class="article-btn" href="{{ h.url }}" target="_blank">Read Article</a>
+    {% endif %}
+
+    <div class="score">
+       <p>Score: {{ session.correct }}/{{ session.total }}</p>
+    </div>
+
+</div>
+
+</body>
+</html>

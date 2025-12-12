@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Real or Fake?</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Is This Headline Real or Fake?</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href='/progress'>Progress</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-card">
+    <h2>{{ h.content }}</h2>
+
+    <form method="post" action="/answer">
+        <input type="hidden" name="id" value="{{ h.id }}">
+
+        <div class="btn">
+            <button name="guess" value="Real">Real</button>
+            <button name="guess" value="Fake">Fake</button>
+        </div>
+    </form>
+
+
+    <div class="score">
+
+        <p>Score: {{ session.correct }}/{{ session.total }}</p>
+
+    </div>
+
+    <a class="reset-btn" href="/reset">Reset</a>
+
+</div>
+
+</body>
+</html>
