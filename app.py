@@ -1,10 +1,12 @@
 from flask import Flask, render_template, session, request, redirect
 import sqlite3, random
+import os
 
 app = Flask(__name__)
 app.secret_key = "change-me"
 
-DB = "fakeNewsUpdated.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB = os.path.join(BASE_DIR, "FakeNews.db")
 
 def get_db():
     conn = sqlite3.connect(DB)
